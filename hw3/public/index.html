@@ -1,0 +1,98 @@
+<!--
+Name: Spencer Rose
+Course: CS 341
+Homework 1: HTML and CSS
+File: cheesecake.html This file is the basic ugly html file for
+a cheesecake ordering website
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Cheese</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles_roses20.css">
+<!--
+Soure: https://www.w3schools.com/jquery/jquery_selectors.asp 1/25/20 I used w3schools
+for help with the syntax and methods of JavaScript & JQuery
+-->
+    <script src="javascripts/orderAndMonths.js"></script>
+  </head>
+<!--
+Source: https://www.w3schools.com/html/default.asp 1/14/2020 I used this source
+in general to help me find the names of tags to use and to understand the
+general syntax of html
+-->
+  <body>
+    <h1 class="italic">Cheesecake Order Form</h1>
+    <!-- The Image -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg"
+          alt="Cheesecake Picture" width="150" height="150">
+    <!-- The Quantity Title-->
+    <p id="FirstTitle">Quantity Topping</p>
+    <form>
+      <table id="ChoicesTable">
+        <tr>
+          <td>
+          <!-- The dropdown options-->
+            <select>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6+</option>
+            </select>
+          </td>
+          <td>
+            <!-- The Radio Options-->
+            <input type="radio" name="flavors" value="Plain"> Plain <br>
+            <input type="radio" name="flavors" value="Chocolate"> Chocolate <br>
+            <input type="radio" name="flavors" value="Strawberry"> Strawberry
+          </td>
+        </tr>
+      </table>
+      <!-- The Notes Text Area-->
+        Notes:<br>
+        <textarea rows="5" cols="50"
+          placeholder="Enter any special instructions here"></textarea>
+        <br>
+    </form>
+    <!-- The Order Button -->
+    <button id="OrderButton">Order</button>
+    <!-- The Orders Heading and Table for drop down month selector -->
+    <table id="OrdersTable">
+      <tr>
+        <td>
+          <h3> Orders For </h3>
+        </td>
+        <td>
+          <div class="dropdown">
+            <button id="MonthButton" class="dropbtn"> Jan </button>
+            <div class="dropdown-content" id="months">
+              <a href="#"> Jan </a>
+              <a href="#"> Feb </a>
+              <a href="#"> Mar </a>
+              <a href="#"> Apr </a>
+              <a href="#"> May </a>
+              <a href="#"> Jun </a>
+              <a href="#"> Jul </a>
+              <a href="#"> Aug </a>
+              <a href="#"> Sep </a>
+              <a href="#"> Oct </a>
+              <a href="#"> Nov </a>
+              <a href="#"> Dec </a>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!-- The list of past orders-->
+    <ul>
+      <li>11 cherry</li>
+      <li>17 chocolate</li>
+      <li>31 plain</li>
+    </ul>
+    <!-- The End -->
+  </body>
+</html>

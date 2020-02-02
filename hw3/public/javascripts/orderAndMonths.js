@@ -1,3 +1,9 @@
+//Name: Spencer Rose
+//Date: 2/1/2020
+//Course: CS341
+//Homework 3
+//File: orderAndMonths.js: this file contains the javascript that used to be in
+//      the script tag of the html
 $(document).ready(function(){
   $("#OrderButton").click(function(){
     // Source: https://stackoverflow.com/questions/39559217/jquery-to-check-a-textarea-for-a-particular-word-and-shows-a-text-input-and-pop

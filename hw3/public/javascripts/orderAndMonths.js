@@ -1,7 +1,7 @@
 //Name: Spencer Rose
 //Date: 2/1/2020
 //Course: CS341
-//Homework 3
+//Homework 4
 //File: orderAndMonths.js: this file contains the javascript that used to be in
 //      the script tag of the html
 $(document).ready(function(){
@@ -24,5 +24,26 @@ $(document).ready(function(){
   });
   $("#months > a").click(function(){
     $("#MonthButton").text($(this).text());
+    $.post("http://localhost:3000/orders", function(result){
+      //This will find the values of different cheesecakes based on result json
+      var chocolate=0;
+      var cherry=0;
+      var plain=0;
+      for (var i = 0; i < result.length; i++) {
+        if(result[i].topping == "cherry"){
+          cherry += result[i].quantity;
+        }
+        else if(result[i].topping == "chocolate") {
+          chocolate += result[i].quantity;
+        }
+        else if(result[i].topping == "plain") {
+          plain += result[i].quantity;
+        }
+      }
+      //Replaces text values for list of bought cheesecakes
+      $("#cherryAmount").text(cherry+" cherry");
+      $("#chocolateAmount").text(chocolate+" chocolate");
+      $("#plainAmount").text(plain+" plain");
+    });
   });
 });

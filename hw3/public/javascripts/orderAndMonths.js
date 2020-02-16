@@ -20,24 +20,26 @@ $(document).ready(function(){
       "Flavor: " + $("input[name=flavors]:checked").val() + "<br>" +
       "Number of Cheesecakes: " + $("select").val() + "<br>" +
       "Notes: " + $("textarea").val());
+      $.post("http://localhost:3000/neworder", {'topping': $("input[name=flavors]:checked").val(), 'quantity': $("select").val(), 'notes': $("textarea").val() }, function(result){
+      });
     }
   });
   $("#months > a").click(function(){
     $("#MonthButton").text($(this).text());
-    $.post("http://localhost:3000/orders", function(result){
+    $.post("http://localhost:3000/orders", {'month': $(this).text()}, function(result){
       //This will find the values of different cheesecakes based on result json
       var chocolate=0;
       var cherry=0;
       var plain=0;
       for (var i = 0; i < result.length; i++) {
-        if(result[i].topping == "cherry"){
-          cherry += result[i].quantity;
+        if(result[i].TOPPING == "Cherry"){
+          cherry += result[i].QUANTITY;
         }
-        else if(result[i].topping == "chocolate") {
-          chocolate += result[i].quantity;
+        else if(result[i].TOPPING == "Chocolate") {
+          chocolate += result[i].QUANTITY;
         }
-        else if(result[i].topping == "plain") {
-          plain += result[i].quantity;
+        else if(result[i].TOPPING == "Plain") {
+          plain += result[i].QUANTITY;
         }
       }
       //Replaces text values for list of bought cheesecakes

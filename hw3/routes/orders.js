@@ -11,9 +11,10 @@ Source: https://www.w3schools.com/js/js_json_stringify.asp 2/5/20
   This source showed me the json stringify function
 */
 var express = require('express');
+var dbms = require('./dbms');
 var router = express.Router();
 //Create my array of json objects
-var orders_array = [
+/*var orders_array = [
   {
     topping: "cherry",
     quantity: 2
@@ -26,12 +27,22 @@ var orders_array = [
     topping: "plain",
     quantity: 4
   }
-];
+];*/
 
-var myResponse = JSON.stringify(orders_array);
+//var myResponse = JSON.stringify(orders_array);
 /* Send JSON object after you parse it*/
 router.post('/', function(req, res, next) {
-  res.json(JSON.parse(myResponse));
+  var body = req.body;
+  var month = body.month.trim();
+  //console.log(month);
+  var query = "select * from ORDERS where MONTH=\'"+ month+"\'";
+  //console.log(query);
+  dbms.dbquery(query, function(error, results) {
+    var myResponse = JSON.stringify(results);
+    //console.log(JSON.parse(myResponse));
+    res.json(JSON.parse(myResponse));
+  });
+  //res.json(JSON.parse(myResponse));
 });
 
 module.exports = router;

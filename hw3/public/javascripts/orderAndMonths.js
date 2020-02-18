@@ -1,7 +1,7 @@
 //Name: Spencer Rose
 //Date: 2/1/2020
 //Course: CS341
-//Homework 4
+//Homework 5
 //File: orderAndMonths.js: this file contains the javascript that used to be in
 //      the script tag of the html
 $(document).ready(function(){
@@ -21,12 +21,12 @@ $(document).ready(function(){
       "Number of Cheesecakes: " + $("select").val() + "<br>" +
       "Notes: " + $("textarea").val());
       $.post("http://localhost:3000/neworder", {'topping': $("input[name=flavors]:checked").val(), 'quantity': $("select").val(), 'notes': $("textarea").val() }, function(result){
-      });
+      });//this will send the information needed to add a new order to the database
     }
   });
   $("#months > a").click(function(){
     $("#MonthButton").text($(this).text());
-    $.post("http://localhost:3000/orders", {'month': $(this).text()}, function(result){
+    $.post("http://localhost:3000/orders", {'month': $(this).text()}, function(result){//will send a request for databse information
       //This will find the values of different cheesecakes based on result json
       var chocolate=0;
       var cherry=0;

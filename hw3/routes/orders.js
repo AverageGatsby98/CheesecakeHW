@@ -1,7 +1,7 @@
 /*
 Name: Spencer Rose
 Course: CS341
-HW: HW4
+HW: HW5
 File: This file responds with a json object when the orders pages is accessed
 
 Source: https://alligator.io/js/json-parse-stringify/ 2/5/20

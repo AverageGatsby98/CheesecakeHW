@@ -1,7 +1,7 @@
 /*
 Name: Spencer Rose
 Course: CS341
-HW: HW4
+HW: HW5
 File: This file has the code that will send a database request to add a new order
 to the database
 */
@@ -23,13 +23,14 @@ router.post('/', function(req, res, next) {
   console.log("notes: "+notes);
   var query = "select COUNT(*) from ORDERS";
   dbms.dbquery(query, function(error, results) {
+    //create unique id number based on how many orders are already in the database
     id = results[0]["COUNT(*)"];
-    console.log(id);
+    //console.log(id);
     addQuery = "INSERT INTO ORDERS (ORDERID, MONTH, DAY, QUANTITY, TOPPING, NOTES) VALUES("
     addQuery += id +","+"'"+month+"',"+day+","+quantity+",'"+topping+"','"+notes+"');";
 
     console.log(addQuery);
-    dbms.dbquery(addQuery, function(error, results){
+    dbms.dbquery(addQuery, function(error, results){//database call to add the order
 
     });
   });
